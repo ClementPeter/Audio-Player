@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   AudioPlayer audioPlayer =
       AudioPlayer(); // Play audio from local device and online
 
-  AudioCache audioCache = AudioCache(); //
+  AudioCache audioCache = AudioCache(); //  Play audio from assets folder
 
   @override
   void initState() {
@@ -76,36 +76,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  //Song Duration/ lenght
-  // String getDuration() {
-  //   audioPlayer.getDuration().then((value) {
-  //     setState(() {
-  //       duration = (value / 60000).toStringAsFixed(2);
-
-  //       //convert the millisecond value to minutes
-  //     });
-  //   });
-  //   return duration!;
-  // }
-
-  //Song current postion
-  // String getPosition()  {
-  //   audioPlayer.getCurrentPosition().then((value) {
-  //        setState(() {
-  //     position = (value / 60000).toStringAsFixed(2);
-  //   });
-  //   });
-
-  // }
-
   @override
   Widget build(BuildContext context) {
+    //song duration /lenght
     audioPlayer.getDuration().then((value) {
       setState(() {
         duration = (value / 60000).toStringAsFixed(2);
         //convert the millisecond value to minutes
       });
     });
+    //song current position
     audioPlayer.getCurrentPosition().then((value) {
       setState(() {
         position = (value / 60000).toStringAsFixed(2);
@@ -121,15 +101,15 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Status : $status',
+              'Song Status : $status',
               style: Theme.of(context).textTheme.headline4,
             ),
             Text(
-              'Position : $position',
+              'Song position : $position',
               style: Theme.of(context).textTheme.headline6,
             ),
             Text(
-              'Duration : $duration',
+              'Song duration :  $duration',
               style: Theme.of(context).textTheme.headline6,
             ),
           ],
