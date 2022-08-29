@@ -26,8 +26,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String? status = "";
-  String? duration;
+  String? status = ""; //status of the song -play, pause, stop
+  String? duration; //Song Duration
+  String? position; //Song position
 
   AudioPlayer audioPlayer =
       AudioPlayer(); // Play audio from local device and online
@@ -75,23 +76,41 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  String getDuration() {
-    audioPlayer.getDuration().then((value) {
-      setState(() {
-        duration = (value / 60000).toStringAsFixed(2);
+  //Song Duration/ lenght
+  // String getDuration() {
+  //   audioPlayer.getDuration().then((value) {
+  //     setState(() {
+  //       duration = (value / 60000).toStringAsFixed(2);
 
-        //convert the millisecond value to minutes
-      });
-    });
-    return duration!;
-  }
+  //       //convert the millisecond value to minutes
+  //     });
+  //   });
+  //   return duration!;
+  // }
 
+  //Song current postion
+  // String getPosition()  {
+  //   audioPlayer.getCurrentPosition().then((value) {
+  //        setState(() {
+  //     position = (value / 60000).toStringAsFixed(2);
+  //   });
+  //   });
 
-
+  // }
 
   @override
   Widget build(BuildContext context) {
-    // audioPlayer.seek
+    audioPlayer.getDuration().then((value) {
+      setState(() {
+        duration = (value / 60000).toStringAsFixed(2);
+        //convert the millisecond value to minutes
+      });
+    });
+    audioPlayer.getCurrentPosition().then((value) {
+      setState(() {
+        position = (value / 60000).toStringAsFixed(2);
+      });
+    });
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -106,9 +125,11 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headline4,
             ),
             Text(
-              // 'Duration :',
-              getDuration(),
-              //'${assets}',
+              'Position : $position',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            Text(
+              'Duration : $duration',
               style: Theme.of(context).textTheme.headline6,
             ),
           ],
