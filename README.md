@@ -1,6 +1,20 @@
 # audio_app
 
-A new Flutter project.
+A sample flutter app for playing audio files from local assets
+
+## 📸 ScreenShots
+
+
+|                                   |                               |                             |
+| --------------------------------- | --------------------------------- |------------------------ |
+| ![play](https://user-images.githubusercontent.com/61213263/187201437-1a02cd94-b555-4048-aadb-3815c0dccd5b.png)  | ![pause](https://user-images.githubusercontent.com/61213263/187201711-f1aac464-2ba9-4123-bf93-83c2afa36162.png)  | ![stop](https://user-images.githubusercontent.com/61213263/187201918-c709442f-28a6-4775-9bd5-74f2c9646397.png) |
+
+
+### Resources Used
+
+> Tutorial : https://www.youtube.com/watch?v=cYTD-I5Wk6g&t=551s
+
+
 
 ## Getting Started
 
