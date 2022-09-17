@@ -2,7 +2,7 @@
 
 A sample flutter app for playing audio files from local assets
 
-## 📸 ScreenShots
+## 📸 Screenshots
 
 
 |                                   |                               |                             |
